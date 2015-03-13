@@ -5,7 +5,7 @@ function Queen(rect, colony){
 		setTimeout(function(queen){
 			var randomSpawnDistanceFromQueen = 20;
 			var center = queen.rect.center();
-			var size = new Point(10, 6);
+			var size = new Point(6, 1);
 			queen.colony.workers.push(
 				new Worker(
 					new Rectangle(
@@ -17,7 +17,7 @@ function Queen(rect, colony){
 					queen.colony
 				)
 			);
-			queen.spawnAnt(1000);
+			queen.spawnAnt(100);
 		}, delay, this);
 	}
 	this.spawnAnt(0);

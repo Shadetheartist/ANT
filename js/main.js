@@ -22,8 +22,14 @@ function update(){
 }
 function render(){
 	ctx.clearRect(0, 0, 800, 800);
+	ctx.scale(camera.scale.x, camera.scale.y);
+	ctx.translate(camera.translate.x, camera.translate.y);
+
 	colonyA.render();
 	for(var i = 0; i < pheromones.length; i++) pheromones[i].render();
+
+	ctx.translate(-camera.translate.x, -camera.translate.y);
+	ctx.scale(1/camera.scale.x, 1/camera.scale.y);
 }
 
 function tick(){
