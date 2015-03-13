@@ -35,7 +35,8 @@ function render(){
 function tick(){
 	update();
 	render();
-	requestAnimationFrame(tick);
+	Time.tick();
+	setTimeout(tick, 0);
 }
 tick();
 

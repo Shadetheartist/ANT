@@ -7,6 +7,13 @@ function Point(x, y) {
 Point.prototype.render = function () {
     ctx.fillRect(this.x, this.y, 1, 1);
 };
+Point.prototype.crossheir = function () {
+	var space = 3;
+    ctx.fillRect(this.x, this.y - (space + 2), 1, 3);
+	ctx.fillRect(this.x, this.y + space, 1, 3);
+	ctx.fillRect(this.x - (space + 2), this.y, 3, 1);
+	ctx.fillRect(this.x + space, this.y, 3, 1);
+};
 Point.prototype.toString = function () {
     return "(" + this.x + ":" + this.y + ")";
 };

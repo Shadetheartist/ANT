@@ -2,7 +2,7 @@ function Queen(rect, colony){
 	Ant.call(this, rect, colony);
 	this.timeUntilDeath = 2592000 * 24; //2 years
 	this.spawnAnt = function(delay){
-		setTimeout(function(queen){
+		new Timeout(function(queen){
 			var randomSpawnDistanceFromQueen = 20;
 			var center = queen.rect.center();
 			var size = new Point(6, 1);
@@ -17,7 +17,7 @@ function Queen(rect, colony){
 					queen.colony
 				)
 			);
-			queen.spawnAnt(100);
+			queen.spawnAnt(10);
 		}, delay, this);
 	}
 	this.spawnAnt(0);
