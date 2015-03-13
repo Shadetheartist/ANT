@@ -5,7 +5,7 @@ Time.timeOuts = [];
 Time.tick = function(){
 	Time.current++;
 	for(var i = 0; i< Time.timeOuts.length; i++){
-		if(Time.timeOuts[i] !== null) Time.timeOuts[i].checkAndCall();
+		if(Time.timeOuts[i] !== undefined) Time.timeOuts[i].checkAndCall();
 	}
 };
 
@@ -19,6 +19,6 @@ function Timeout(callback, time, params){
 Timeout.prototype.checkAndCall =function(){
 	if(this.timeSet < Time.current) {
 		this.callback(this.params);
-		Time.timeOuts[this.index] = null;
+		Time.timeOuts[this.index] = undefined;
 	}
 };

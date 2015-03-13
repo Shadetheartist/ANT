@@ -22,10 +22,8 @@ Camera.prototype.mouseMove = function(pos){
 };
 Camera.prototype.mouseWheel = function(e){
 	var mouseWheelDirection = Math.max(-1, Math.min(1, (e.wheelDelta)));
-	this.scale.x += this.zoomAmount * mouseWheelDirection;
-	this.scale.y += this.zoomAmount * mouseWheelDirection;
-	if(this.scale.x < 0.1) this.scale.x = 0.1;
-	if(this.scale.y < 0.1) this.scale.y = 0.1;
+	this.scale.x += (this.zoomAmount * mouseWheelDirection);
+	this.scale.y += (this.zoomAmount * mouseWheelDirection);
 }
 
 var camera = new Camera();

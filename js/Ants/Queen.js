@@ -17,7 +17,7 @@ function Queen(rect, colony){
 					queen.colony
 				)
 			);
-			queen.spawnAnt(10);
+			queen.spawnAnt(260);
 		}, delay, this);
 	}
 	this.spawnAnt(0);
