@@ -103,7 +103,7 @@ Worker.prototype.explore = function(){
 			
 	new Timeout(function(ant){
 		ant.tasks[0] = ant.explore.bind(ant);
-	}, 10, this);
+	}, 50, this);
 	
 };
 
@@ -113,6 +113,7 @@ Worker.prototype.follow = function(pos){
 			var r = Math.atan2(this.currentlyInPheromone.forward.pos.y - this.rect.y,  this.currentlyInPheromone.forward.pos.x - this.rect.x);
 			this.rotation = r;
 		}
+		this.currentlyInPheromone.timeRemaining += 3;
 	}
 }
 

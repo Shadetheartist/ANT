@@ -25,3 +25,6 @@ Ant.prototype.update = function(){
 Ant.prototype.die = function(){
 	
 };
+Ant.prototype.toString = function(){
+	return this.constructor.name + " : " + this.energy;
+};
