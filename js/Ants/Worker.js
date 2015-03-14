@@ -7,6 +7,7 @@ function Worker(rect, colony){
 	this.tasks = [];
 	this.ignoredPheromones = [];
 	this.laidPheromones = [];
+	this.randomValue = 0;
 	this.currentlyInPheromone = undefined;
 	this.tasks.push(this.explore.bind(this));
 	this.tasks.push(this.forward.bind(this));
@@ -98,6 +99,7 @@ Worker.prototype.explore = function(){
 	}
 	else if (this.currentlyInPheromone.forward !== undefined)
 	{
+		this.randomValue = (Math.random() * Math.PI - Math.PI/2) * 0.2
 		this.tasks[0] = this.follow.bind(this);
 	}
 			
@@ -111,9 +113,9 @@ Worker.prototype.follow = function(pos){
 	if(this.currentlyInPheromone !== undefined){
 		if(this.currentlyInPheromone.forward !== undefined){
 			var r = Math.atan2(this.currentlyInPheromone.forward.pos.y - this.rect.y,  this.currentlyInPheromone.forward.pos.x - this.rect.x);
-			this.rotation = r;
+			this.rotation = r + this.randomValue;
 		}
-		this.currentlyInPheromone.timeRemaining += 3;
+		this.currentlyInPheromone.timeRemaining += 1;
 	}
 }
 

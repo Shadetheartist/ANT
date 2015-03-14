@@ -62,6 +62,12 @@ function tick(){
 		GameState.clearScreen = true;
 	}
 	
+	if(Keys.space.pressed) {
+		GameState.showPheremones = true;
+	} else {
+		GameState.showPheremones = false;
+	}
+	
 	setTimeout(tick, 0);
 }
 tick();
