@@ -6,7 +6,7 @@ function Pheromone(pos, radius, ant, meaning, urgency, strength, timeRemaining){
 	this.meaning = meaning || function(){};
 	this.urgency = urgency || 1;
 	this.strength = strength || 1;
-	this.timeAlive = timeRemaining || 2000;
+	this.timeAlive = timeRemaining || 10000;
 	this.maxTimeAlive = 2000
 	this.timeRemaining = this.timeAlive;
 	this.ant = ant;
@@ -19,7 +19,8 @@ function Pheromone(pos, radius, ant, meaning, urgency, strength, timeRemaining){
 }
 Pheromone.prototype.update = function(){
 	this.timeRemaining--;
-	this.strength = this.timeRemaining / this.timeAlive;
+	this.strength = (this.timeRemaining / this.timeAlive) / 2;
+	if(this.strength > 0.5) this.strength = 0.5;
 	if(this.timeRemaining < 0){
 		var i = this.index;
 		pheromones.splice(this.index, 1);

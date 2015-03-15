@@ -6,8 +6,8 @@ function Queen(rect, colony){
 			var randomSpawnDistanceFromQueen = 20;
 			var center = queen.rect.center();
 			var size = new Point(8, 3);
-			queen.colony.workers.push(
-				new Worker(
+			
+			var w = new Worker(
 					new Rectangle(
 						center.x + Math.random() * randomSpawnDistanceFromQueen * 2 - randomSpawnDistanceFromQueen - (size.x/2), 
 						center.y + Math.random() * randomSpawnDistanceFromQueen * 2 - randomSpawnDistanceFromQueen - (size.y/2),
@@ -15,9 +15,11 @@ function Queen(rect, colony){
 						size.y
 					),
 					queen.colony
-				)
-			);
-			queen.spawnAnt(260);
+				);
+			w.rotation = Math.random() * 2*Math.PI;
+			
+			queen.colony.workers.push(w);
+			queen.spawnAnt(1);
 		}, delay, this);
 	}
 	this.spawnAnt(0);
